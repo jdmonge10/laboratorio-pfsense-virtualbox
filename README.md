@@ -58,3 +58,36 @@ Se ha creado una instancia optimizada con los siguientes parámetros técnicos, 
 ![Resumen de Hardware Virtual](./02-configuracion-virtualbox/01-resumen-hardware.png)
 
 ---
+
+## 📂 Fase 03: Instalación del Sistema (pfSense CE)
+En esta fase se realiza la configuración lógica de las interfaces y el particionado del disco duro virtual bajo el sistema de archivos ZFS.
+
+### 3.1: Configuración de Interfaces
+El instalador reconoce las tarjetas de red virtuales (em0, em1, em2). Se procede con la vinculación física-lógica.
+![Instalación Interfaces](./03-instalacion-sistema/03-network-installation.png)
+
+### 3.2: Asignación WAN (em0)
+Se designa la interfaz `em0` como WAN, configurada en modo DHCP para recibir conectividad del NAT de VirtualBox.
+![Asignación WAN](./03-instalacion-sistema/04-asignacion-wan.png)
+![Modo WAN DHCP](./03-instalacion-sistema/05-configuracion-modo-wan.png)
+
+### 3.3: Asignación LAN (em2)
+Siguiendo el diseño de red personalizado, se asigna la interfaz `em2` como LAN primaria.
+![Asignación LAN](./03-instalacion-sistema/06-asignacion-lan.png)
+![Confirmación Interfaces](./03-instalacion-sistema/08-confirmacion-interfaces.png)
+
+### 3.4: Selección de Versión y Sistema de Archivos
+Se selecciona la versión **Community Edition (CE)** y el sistema de archivos **ZFS** con esquema de particiones **GPT**.
+![Selección CE](./03-instalacion-sistema/10-seleccion-version-ce.png)
+![Opciones ZFS](./03-instalacion-sistema/11-opciones-instalacion-zfs.png)
+
+### 3.5: Particionado y Selección de Disco
+Se configura un pool ZFS tipo **Stripe** (sin redundancia). 
+> **Nota Crítica:** Es obligatorio marcar el disco `ada0` con la tecla **Espacio** hasta ver el asterisco `[*]`.
+![ZFS Stripe](./03-instalacion-sistema/12-zfs-stripe.png)
+![Selección Disco ada0](./03-instalacion-sistema/13-seleccion-disco-zfs.png)
+
+### 3.6: Ejecución y Reinicio
+Confirmación final de escritura y proceso de instalación de paquetes.
+![Confirmación Final](./03-instalacion-sistema/14-confirmacion-destruccion-datos.png)
+![Reinicio Final](./03-instalacion-sistema/18-reboot-final.png)
