@@ -37,3 +37,24 @@ Se completa el proceso de obtención a coste cero ($0.00). Una vez validado el p
 El archivo descargado se presenta en formato comprimido `.iso.gz`. Es imperativo realizar la extracción mediante herramientas como 7-Zip para obtener la imagen `.iso` final.
 
 ![Extracción de ISO](01-descarga-iso/10-extraer.png)
+
+
+---
+
+## 📂 Fase 02: Configuración de la Máquina Virtual (VirtualBox)
+En esta etapa se define el hardware virtual necesario para soportar un firewall de alto rendimiento. La correcta asignación de recursos y la segmentación de redes son los pilares de este laboratorio.
+
+### Paso 2.1: Resumen de Configuración de la VM
+Se ha creado una instancia optimizada con los siguientes parámetros técnicos, asegurando que el instalador de pfSense tenga acceso a todos los segmentos de red requeridos:
+
+* **Sistema Operativo:** FreeBSD (64-bit).
+* **Memoria RAM:** 4096 MB (Asignación generosa para asegurar fluidez en el procesado de paquetes).
+* **Almacenamiento:** Disco VDI de 30 GB con la ISO oficial montada.
+* **Segmentación de Red (Tiered Architecture):**
+    * **Adaptador 1:** WAN (Configurado como NAT para salida a internet).
+    * **Adaptador 2:** LAN (Red interna aislada para clientes locales).
+    * **Adaptador 3:** DMZ (Red interna para servicios expuestos).
+
+![Resumen de Hardware Virtual](./02-configuracion-virtualbox/01-resumen-hardware.png)
+
+---
