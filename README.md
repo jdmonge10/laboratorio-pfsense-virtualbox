@@ -115,7 +115,7 @@ En esta etapa final de consola, el firewall deja de tener una configuración est
 
 ### 5.1: Acceso al Menú de Direccionamiento
 Tras el primer arranque limpio, seleccionamos la **Opción 2 (Set interface(s) IP address)**. Este es el punto de entrada para definir manualmente las IPs de nuestra infraestructura.
-![Selección Opción 2](./05-configuracion-inicial-consola/01-seleccion-opcion-ip.png)
+![Selección Opción 2](./05-configuracion-inicial-consola/01-menu-consola-pfsense.org.png)
 
 ### 5.2: Configuración del Segmento LAN (192.168.50.1)
 Se selecciona la interfaz **2 (LAN)**. Para garantizar el control total del segmento, se deniega la configuración por DHCP externo y se establece una IP estática.
