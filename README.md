@@ -119,12 +119,11 @@ Tras el primer arranque limpio, seleccionamos la **Opción 2 (Set interface(s) I
 
 ### 5.2: Configuración del Segmento LAN (192.168.50.1)
 Se selecciona la interfaz **2 (LAN)**. Para garantizar el control total del segmento, se deniega la configuración por DHCP externo y se establece una IP estática.
-![Selección Interfaz LAN](./05-configuracion-inicial-consola/02-seleccion-interfaz-lan.png)
-![Denegar DHCP Cliente](./05-configuracion-inicial-consola/04-denegar-dhcp-cliente-lan.png)
+![Selección Interfaz LAN](./05-configuracion-inicial-consola/03-seleccion-interfaz-lan.png)
 
 Se aplica la IP **192.168.50.1** con máscara **/24**. Adicionalmente, se activa el **Servidor DHCP interno** (rango .20 - .100) y se mantiene el protocolo **HTTPS** para la WebGUI por seguridad.
-![Configuración Estática y DHCP LAN](./05-configuracion-inicial-consola/03-configuracion-dhcp-lan.png)
-![Verificación IP LAN](./05-configuracion-inicial-consola/05-verificacion-ip-lan-final.png)
+![Configuración Estática y DHCP LAN](./05-configuracion-inicial-consola/05-configuracion-dhcp-lan.png)
+![Verificación IP LAN](./05-configuracion-inicial-consola/06-verificacion-ip-lan-final.png)
 
 ### 5.3: Asignación y Configuración de la DMZ (OPT1)
 Para habilitar el tercer adaptador de red (em1), se utiliza la **Opción 1 (Assign Interfaces)**. Se realiza el mapeo lógico vinculando **em1** como la interfaz **Optional 1**.
