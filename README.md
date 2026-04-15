@@ -106,3 +106,37 @@ Inmediatamente después de pulsar **Reboot**, se debe retirar la imagen ISO desd
 ### 4.2: Primer Arranque del Kernel
 Verificación de la secuencia de inicio de FreeBSD y carga de los servicios core de pfSense desde el pool ZFS.
 ![Secuencia de Inicio](./04-finalizacion-desmontaje/02-arranque-servicios.png)
+
+
+--- 
+
+## 📂 Fase 05: Configuración Operativa de Red (Consola)
+En esta etapa final de consola, el firewall deja de tener una configuración estándar para adaptarse al esquema de red segmentado del laboratorio.
+
+### 5.1: Acceso al Menú de Direccionamiento
+Tras el primer arranque limpio, seleccionamos la **Opción 2 (Set interface(s) IP address)**. Este es el punto de entrada para definir manualmente las IPs de nuestra infraestructura.
+![Selección Opción 2](./05-configuracion-inicial-consola/01-seleccion-opcion-ip.png)
+
+### 5.2: Configuración del Segmento LAN (192.168.50.1)
+Se selecciona la interfaz **2 (LAN)**. Para garantizar el control total del segmento, se deniega la configuración por DHCP externo y se establece una IP estática.
+![Selección Interfaz LAN](./05-configuracion-inicial-consola/02-seleccion-interfaz-lan.png)
+![Denegar DHCP Cliente](./05-configuracion-inicial-consola/04-denegar-dhcp-cliente-lan.png)
+
+Se aplica la IP **192.168.50.1** con máscara **/24**. Adicionalmente, se activa el **Servidor DHCP interno** (rango .20 - .100) y se mantiene el protocolo **HTTPS** para la WebGUI por seguridad.
+![Configuración Estática y DHCP LAN](./05-configuracion-inicial-consola/03-configuracion-dhcp-lan.png)
+![Verificación IP LAN](./05-configuracion-inicial-consola/05-verificacion-ip-lan-final.png)
+
+### 5.3: Asignación y Configuración de la DMZ (OPT1)
+Para habilitar el tercer adaptador de red (em1), se utiliza la **Opción 1 (Assign Interfaces)**. Se realiza el mapeo lógico vinculando **em1** como la interfaz **Optional 1**.
+![Acceso Asignación](./05-configuracion-inicial-consola/07-acceso-asignacion-interfaces.png)
+![Mapeo em1 a OPT1](./05-configuracion-inicial-consola/08-mapeo-interfaces-dmz.png)
+![Confirmación Mapeo](./05-configuracion-inicial-consola/09-confirmacion-mapeo-tres-interfaces.png)
+
+Una vez asignada, se utiliza nuevamente la **Opción 2** para otorgar a la **DMZ** la dirección **10.0.0.1/24** y activar su propio servidor DHCP.
+![Selección Interfaz DMZ](./05-configuracion-inicial-consola/10-seleccion-interfaz-dmz.png)
+![Configuración IP y DHCP DMZ](./05-configuracion-inicial-consola/11-configuracion-ip-dhcp-dmz.png)
+![Éxito Configuración DMZ](./05-configuracion-inicial-consola/12-confirmacion-exito-dmz.png)
+
+### 5.4: Estado Final de la Infraestructura
+La configuración por consola concluye con éxito. El firewall presenta ahora sus tres zonas de red operativas y listas para la gestión mediante la interfaz web desde un cliente interno.
+![Estado Final Consola](./05-configuracion-inicial-consola/13-estado-final-consola.png)
