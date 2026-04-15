@@ -91,3 +91,18 @@ Se configura un pool ZFS tipo **Stripe** (sin redundancia).
 Confirmación final de escritura y proceso de instalación de paquetes.
 ![Confirmación Final](./03-instalacion-sistema/14-confirmacion-destruccion-datos.png)
 ![Reinicio Final](./03-instalacion-sistema/18-reboot-final.png)
+
+
+--- 
+
+## 📂 Fase 04: Finalización y Desmontaje de Medios
+Fase crítica para romper el bucle de instalación y asegurar el arranque desde el disco duro virtual.
+
+### 4.1: Desmontaje de la ISO en VirtualBox
+Inmediatamente después de pulsar **Reboot**, se debe retirar la imagen ISO desde el menú del hipervisor para evitar que el instalador cargue nuevamente.
+* **Ruta:** Dispositivos > Unidades Ópticas > Eliminar disco de la unidad virtual.
+![Desmontaje ISO](./04-finalizacion-desmontaje/01-desmontaje-iso-virtualbox.png)
+
+### 4.2: Primer Arranque del Kernel
+Verificación de la secuencia de inicio de FreeBSD y carga de los servicios core de pfSense desde el pool ZFS.
+![Secuencia de Inicio](./04-finalizacion-desmontaje/02-arranque-servicios.png)
