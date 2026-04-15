@@ -11,7 +11,7 @@ Para asegurar que se puede replicar este laboratorio, se detallan las versiones 
 * **Sistema Operativo:** pfSense Community Edition (v2.8.1+)
 * **Arquitectura:** AMD64 (64-bit)
 * **Recursos VM:** 4GB RAM | 1 vCPU | 30GB VDI (Dinámico)
-* **Interfaces de Red:** WAN (NAT) | LAN (Internal Network) | DMZ (Internal Network)
+* **Interfaces de Red:** WAN (NAT) | DMZ (Internal Network) |  LAN (Internal Network)
 
 --- 
 
@@ -52,8 +52,8 @@ Se ha creado una instancia optimizada con los siguientes parámetros técnicos, 
 * **Almacenamiento:** Disco VDI de 30 GB con la ISO oficial montada.
 * **Segmentación de Red (Tiered Architecture):**
     * **Adaptador 1:** WAN (Configurado como NAT para salida a internet).
-    * **Adaptador 2:** LAN (Red interna aislada para clientes locales).
-    * **Adaptador 3:** DMZ (Red interna para servicios expuestos).
+    * **Adaptador 2:** DMZ (Red interna para servicios expuestos).
+    * **Adaptador 3:** LAN (Red interna aislada para clientes locales).
 
 ![Resumen de Hardware Virtual](./02-configuracion-virtualbox/01-resumen-hardware.png)
 
