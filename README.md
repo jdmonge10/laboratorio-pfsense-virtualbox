@@ -2,6 +2,24 @@
 
 Este manual, documenta el proceso técnico para la implementación de un firewall como psSense, desde la descarga y preparación de la imagen hasta la configuración de la arquitectura de red en VirtualBox
 
+---
+
+## 📑 Índice de Contenidos
+* [🛠️ Especificaciones Técnicas](#️-especificaciones-técnicas)
+* [📂 Fase 00: Arquitectura y Diseño de Red](#-fase-00-arquitectura-y-diseño-de-red)
+* [📂 Fase 01: Obtención y Preparación de la Imagen](#-fase-01-obtención-y-preparación-de-la-imagen)
+* [📂 Fase 02: Configuración de la Máquina Virtual](#-fase-02-configuración-de-la-máquina-virtual-virtualbox)
+* [📂 Fase 03: Instalación del Sistema (pfSense CE)](#-fase-03-instalación-del-sistema-pfsense-ce)
+* [📂 Fase 04: Finalización y Desmontaje de Medios](#-fase-04-finalización-y-desmontaje-de-medios)
+* [📂 Fase 05: Configuración Operativa de Red (Consola)](#-fase-05-configuración-operativa-de-red-consola)
+* [📂 Fase 06: Pruebas de Conectividad y Verificación](#-fase-06-pruebas-de-conectividad-y-verificación)
+* [📂 Fase 07: Configuración Inicial del Sistema](#-fase-07-configuración-inicial-del-sistema-general-setup)
+* [📂 Fase 08: Configuración Avanzada de Interfaces](#-fase-08-configuración-avanzada-de-interfaces)
+* [📂 Fase 09: Bloqueo de Clientes y Reglas de Filtrado](#-fase-09-bloqueo-de-clientes-y-reglas-de-filtrado)
+* [📂 Fase 10: Reglas de Filtrado y Comunicación entre Zonas](#-fase-10-reglas-de-filtrado-y-comunicación-entre-zonas)
+* [🏆 Conclusión Final](#-conclusión-final)
+* [🧠 Lecciones Aprendidas (Troubleshooting)](#-lecciones-aprendidas-troubleshooting)
+* [🚀 Hoja de Ruta (Próximos Pasos)](#-hoja-de-ruta-próximos-pasos)
 
 ---
 
