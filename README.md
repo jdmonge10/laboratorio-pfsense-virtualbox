@@ -152,3 +152,25 @@ Una vez asignada, se utiliza nuevamente la **Opción 2** para otorgar a la **DMZ
 ### 5.4: Estado Final de la Infraestructura
 La configuración por consola concluye con éxito. El firewall presenta ahora sus tres zonas de red operativas y listas para la gestión mediante la interfaz web desde un cliente interno.
 ![Estado Final Consola](./05-configuracion-inicial-consola/13-estado-final-consola.png)
+
+
+--- 
+
+## 📂 Fase 06: Pruebas de Conectividad y Verificación
+En esta fase se valida la correcta segmentación de la red y la operatividad de los servicios DHCP y Gateway desde los clientes finales, asegurando que el tráfico fluye según el diseño establecido.
+
+### 6.1: Verificación de Direccionamiento IP (ipconfig)
+Se inicia un cliente en la red LAN para comprobar que el servidor DHCP de pfSense ha asignado correctamente una dirección dentro del rango configurado (192.168.50.x). Se valida la puerta de enlace predeterminada.
+![Verificación de IP](./06-pruebas-conectividad/01-ipconfig.png)
+
+### 6.2: Prueba de Latencia a Gateway LAN
+Se ejecuta un test de conectividad (`ping`) hacia la interfaz LAN del firewall (**192.168.50.1**). Esta prueba confirma que el enlace físico-lógico entre el cliente y el segmento de gestión es estable.
+![Ping Gateway LAN](./06-pruebas-conectividad/02-ping-lan-gateway.png)
+
+### 6.3: Validación de Salto a Gateway DMZ
+Se realiza una prueba de alcance hacia la interfaz de la DMZ (**10.0.0.1**). El éxito de esta respuesta indica que el enrutamiento interno entre segmentos está activo y el kernel de pfSense procesa correctamente las peticiones ICMP.
+![Ping Gateway DMZ](./06-pruebas-conectividad/03-ping-dmz-gateway.png)
+
+### 6.4: Acceso a la Interfaz Gráfica (WebGUI)
+Finalmente, se valida el acceso al panel de administración mediante el navegador del cliente. La carga del Dashboard confirma que los servicios de servidor web y seguridad de pfSense están listos para la configuración avanzada. (usuario admin y contraseña pfsense)
+![Acceso WebGUI](./06-pruebas-conectividad/04-pfsense-webgui.png)
