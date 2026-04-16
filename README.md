@@ -200,3 +200,22 @@ Siguiendo las directrices del enunciado, se personaliza la identidad del sistema
 * **DNS Server Override:** Se desactiva la casilla para evitar que el proveedor de servicios (WAN/DHCP) sobrescriba los servidores configurados manualmente.
 
 ![Configuración Hostname y DNS](./07-configuracion-general/02-configuracion-hostname-dns.png)
+
+
+---
+
+## 📂 Fase 08: Configuración Avanzada de Interfaces
+En esta sección se ajustan los parámetros de seguridad específicos para cada segmento de red, comenzando por el endurecimiento de la interfaz WAN frente a tráfico no autorizado.
+
+### 8.1: Acceso a la Configuración WAN
+Para gestionar las reglas de seguridad de la entrada a internet, navegamos a través del menú **Interfaces > WAN**. Este apartado permite definir cómo el firewall interactúa con el tráfico proveniente del exterior.
+
+![Acceso Interfaz WAN](./08-configuracion-interfaces/01-acceso-interfaz-wan.png)
+
+### 8.2: Protección Perimetral (RFC 1918 y Bogon Networks)
+Haciendo scroll hasta el final de la página, en la sección **Reserved Networks**, se localizan las directivas de seguridad para el filtrado de redes no autorizadas. Se procede a marcar ambas opciones:
+
+* **Block private networks and loopback addresses:** Bloquea el tráfico de redes privadas (RFC 1918) y direcciones de bucle local (127/8). Esta es la opción solicitada en el enunciado para evitar el ingreso de tráfico desde rangos no enrutables.
+* **Block bogon networks:** Bloquea redes que aún no han sido asignadas oficialmente por la IANA o que están reservadas.
+
+![Bloqueo RFC1918 y Bogon](./08-configuracion-interfaces/02-bloqueo-rfc1918-bogon.png)
