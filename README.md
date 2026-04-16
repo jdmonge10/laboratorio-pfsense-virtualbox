@@ -18,7 +18,7 @@ Para asegurar que se puede replicar este laboratorio, se detallan las versiones 
 ## 📂 Fase 00: Arquitectura y Diseño de Red
 Antes de proceder con la implementación técnica, se define el esquema lógico de la infraestructura. El diseño se basa en una arquitectura de tres niveles (Tiered Architecture) para garantizar el aislamiento de servicios críticos.
 
-![Esquema de Red](./esquema-de-red.png)
+![Esquema de Red](01.esquema-de-red.png)
 
 ### Detalle de Segmentación:
 * **Zona WAN (eth1):** Interfaz conectada al mundo exterior (NAT en VirtualBox) para salida a internet.
