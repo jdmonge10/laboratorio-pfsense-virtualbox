@@ -182,19 +182,21 @@ Una vez autenticados, se accede al panel principal (Dashboard). En esta vista se
 
 ---
 
+---
+
 ## 📂 Fase 07: Configuración Inicial del Sistema (General Setup)
-Siguiendo los requerimientos del escenario, se procede a establecer la identidad del firewall y la configuración de resolución de nombres para garantizar la conectividad externa del sistema.
+En esta etapa se realizan los ajustes de identidad y red troncal del firewall, cumpliendo con los requisitos de personalización y conectividad externa mediante DNS.
 
-### 7.1: Identidad del Host y Servidores DNS
-Se accede al menú **System > General Setup** para definir los parámetros de red básicos. Se configura el nombre del host siguiendo el formato de apellidos establecido y se asignan los servidores de Google para la resolución de nombres, asegurando que la opción de sobreescritura de DNS por DHCP esté desactivada.
+### 7.1: Acceso al Menú de Configuración General
+Para iniciar la personalización, navegamos a través del menú superior hacia **System > General Setup**. Este apartado permite modificar los parámetros de red globales que afectan al comportamiento de resolución y nombre del nodo.
 
-* **Hostname:** [Apellido1Apellido2]
-* **Primary DNS Server:** 8.8.8.8
-* **Secondary DNS Server:** 8.8.4.4
-* **DNS Hostname Override:** Desmarcado
+![Acceso General Setup](./07-configuracion-general/01-acceso-general-setup.png)
 
-![Configuración General Setup](./07-configuracion-general/01-general-setup-dns.png)
+### 7.2: Configuración de Hostname y Servidores DNS
+Siguiendo las directrices del enunciado, se personaliza la identidad del sistema y se asegura la resolución de nombres externa. Los parámetros configurados son:
 
-### 7.2: Configuración de Zona Horaria
-Dentro del mismo apartado, se ajusta la zona horaria a **Europe/Madrid** y se define el servidor NTP por defecto. Esto garantiza que los registros de logs y la validez de los certificados coincidan con la hora local de la infraestructura.
-![Configuración Horaria](./07-configuracion-general/02-timezone-config.png)
+* **Hostname:** Se establece el nombre del host con el formato de apellidos (ej. `PerezPepito`), facilitando la identificación del administrador.
+* **DNS Server Settings:** Se configuran las IPs de Google (**8.8.8.8** y **8.8.4.4**) como servidores de confianza.
+* **DNS Server Override:** Se desactiva la casilla para evitar que el proveedor de servicios (WAN/DHCP) sobrescriba los servidores configurados manualmente.
+
+![Configuración Hostname y DNS](./07-configuracion-general/02-configuracion-hostname-dns.png)
