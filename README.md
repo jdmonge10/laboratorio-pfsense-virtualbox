@@ -86,7 +86,7 @@ Se designa la interfaz `em0` como WAN, configurada en modo DHCP para recibir con
 
 ### 3.3: Asignación LAN (em2)
 Siguiendo el diseño de red personalizado, se asigna la interfaz `em2` como LAN primaria.
-![Asignación LAN](./03-instalacion-sistema/06-asignacion-lan.png)
+![Asignación LAN](./03-instalacion-sistema/06-asignacion-lan-em2.png)
 ![Confirmación Interfaces](./03-instalacion-sistema/08-confirmacion-interfaces.png)
 
 ### 3.4: Selección de Versión y Sistema de Archivos
