@@ -219,3 +219,52 @@ Haciendo scroll hasta el final de la página, en la sección **Reserved Networks
 * **Block bogon networks:** Bloquea redes que aún no han sido asignadas oficialmente por la IANA o que están reservadas.
 
 ![Bloqueo RFC1918 y Bogon](./08-configuracion-interfaces/02-bloqueo-rfc1918-bogon.png)
+
+
+---
+
+## 📂 Fase 09: Bloqueo de Clientes y Reglas de Filtrado
+En esta fase se gestiona el control de acceso de los dispositivos en la red LAN. El objetivo es identificar un cliente específico y asegurar su identidad mediante un mapeo estático para aplicar posteriormente reglas de filtrado personalizadas.
+
+### 9.1: Identificación de los Parámetros del Cliente
+Antes de realizar el mapeo en pfSense, es necesario obtener los datos técnicos del host en la zona LAN. Mediante el comando `ipconfig /all` en el cliente, extraemos la dirección física (MAC) y la IP asignada que servirá de base para la reserva estática.
+
+* **Hostname:** Oprekin-PC
+* **Dirección Física (MAC):** 08-00-27-72-65-E7
+* **IPv4 Address:** 192.168.50.10
+
+![Identificación Cliente LAN](./09-bloqueo-y-filtrado/01-identificacion-cliente.png)
+
+### 9.2: Acceso al Servidor DHCP
+Para iniciar el proceso de reserva, navegamos en la WebGUI hacia **Services > DHCP Server**. Dentro de este menú, seleccionamos la pestaña **LAN**, que es el segmento donde reside nuestro cliente.
+
+![Acceso DHCP Server](./09-bloqueo-y-filtrado/02-acceso-dhcp-server.png)
+
+### 9.3: Localización del Mapeo Estático
+Es imperativo realizar **scroll hasta la parte inferior** de la página de configuración DHCP. Al final del todo, localizamos la sección **DHCP Static Mappings for this Interface** y pulsamos el botón **+ Add** para abrir el formulario de reserva.
+
+![Boton Static Mapping](./09-bloqueo-y-filtrado/03-boton-static-mapping.png)
+
+### 9.4: Registro del Mapeo Estático e Identificación
+En el formulario **Static DHCP Mapping**, vinculamos de forma persistente los parámetros del cliente. Siguiendo el enunciado, se completan los campos técnicos y de auditoría:
+
+* **MAC Address:** `08:00:27:72:65:e7`
+* **IP Address:** `192.168.50.10`
+* **Gateway:** `192.168.50.1`
+
+![Configuración Mapeo Estático](./09-bloqueo-y-filtrado/04-configuracion-mapeo-estatico.png)
+
+### 9.5: Identificación Personalizada del Administrador
+Para finalizar el registro, se utiliza el campo **Description** insertando el identificador obligatorio con el formato `[Apellido1][Apellido2][Nombre]`. Este paso es clave para la trazabilidad de las reglas de red en entornos corporativos o de laboratorio.
+
+![Descripción Personalizada](./09-bloqueo-y-filtrado/05-descripcion-mapeo-personal.png)
+
+### 9.6: Guardado del Mapeo Estático
+Una vez completados todos los campos del formulario, es fundamental pulsar el botón **Save** situado en la parte inferior. Este paso almacena la configuración en el sistema, pero requiere una confirmación adicional para activarse.
+
+![Guardar Configuración](./09-bloqueo-y-filtrado/06-guardar-configuracion.png)
+
+### 9.7: Aplicación Final de Cambios
+Tras guardar, el sistema muestra un aviso indicando que la configuración de DHCP ha cambiado. Se debe pulsar el botón **Apply Changes** en el banner superior para que pfSense reinicie el servicio DHCP con la nueva reserva estática operativa. Una vez realizado, el cliente recibirá siempre la IP configurada.
+
+![Confirmar Cambios](./09-bloqueo-y-filtrado/07-confirmar-cambios.png)
