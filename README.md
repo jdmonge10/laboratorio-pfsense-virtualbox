@@ -178,3 +178,23 @@ Finalmente, se valida el acceso al panel de administración mediante el navegado
 ### 6.5: Dashboard de Estado del Sistema
 Una vez autenticados, se accede al panel principal (Dashboard). En esta vista se verifica el estado de los servicios, el uso de recursos de hardware y que las tres interfaces (**WAN, LAN y DMZ**) se encuentran en estado "Up" con sus respectivas direcciones IP asignadas.
 ![Dashboard Principal](./06-pruebas-conectividad/05-dashboard-pfsense.png)
+
+
+---
+
+## 📂 Fase 07: Configuración Inicial del Sistema (General Setup)
+Siguiendo los requerimientos del escenario, se procede a establecer la identidad del firewall y la configuración de resolución de nombres para garantizar la conectividad externa del sistema.
+
+### 7.1: Identidad del Host y Servidores DNS
+Se accede al menú **System > General Setup** para definir los parámetros de red básicos. Se configura el nombre del host siguiendo el formato de apellidos establecido y se asignan los servidores de Google para la resolución de nombres, asegurando que la opción de sobreescritura de DNS por DHCP esté desactivada.
+
+* **Hostname:** [Apellido1Apellido2]
+* **Primary DNS Server:** 8.8.8.8
+* **Secondary DNS Server:** 8.8.4.4
+* **DNS Hostname Override:** Desmarcado
+
+![Configuración General Setup](./07-configuracion-general/01-general-setup-dns.png)
+
+### 7.2: Configuración de Zona Horaria
+Dentro del mismo apartado, se ajusta la zona horaria a **Europe/Madrid** y se define el servidor NTP por defecto. Esto garantiza que los registros de logs y la validez de los certificados coincidan con la hora local de la infraestructura.
+![Configuración Horaria](./07-configuracion-general/02-timezone-config.png)
