@@ -268,3 +268,41 @@ Una vez completados todos los campos del formulario, es fundamental pulsar el bo
 Tras guardar, el sistema muestra un aviso indicando que la configuración de DHCP ha cambiado. Se debe pulsar el botón **Apply Changes** en el banner superior para que pfSense reinicie el servicio DHCP con la nueva reserva estática operativa. Una vez realizado, el cliente recibirá siempre la IP configurada.
 
 ![Confirmar Cambios](./09-bloqueo-y-filtrado/07-confirmar-cambios.png)
+
+
+---
+
+## 📂 Fase 10: Reglas de Filtrado y Comunicación entre Zonas
+En esta fase se implementan las políticas de seguridad en el firewall para permitir el tráfico legítimo entre la zona LAN y la zona DMZ, aplicando el principio de mínimo privilegio y asegurando la administración remota de los activos críticos.
+
+### 10.1: Acceso al Menú de Reglas de Firewall
+Para establecer la comunicación entre segmentos, navegamos en la WebGUI de pfSense hacia el menú **Firewall > Rules**. Este apartado es el núcleo donde se definen las listas de control de acceso (ACL) del sistema.
+
+![Acceso Reglas Firewall](./10-reglas-firewall/01-acceso-reglas-firewall.png)
+
+### 10.2: Selección de Interfaz LAN y Creación
+Accedemos específicamente a la pestaña **LAN**. Siguiendo la lógica de pfSense, las reglas se aplican en la interfaz de entrada donde se origina el paquete. Pulsamos el botón **Add (flecha arriba)** para insertar la regla al principio de la lista, garantizando que se evalúe antes que las reglas de denegación por defecto.
+
+![Interfaz Rules LAN](./10-reglas-firewall/02-reglas-interfaz-lan.png)
+
+### 10.3: Configuración de la Regla SSH (LAN a DMZ)
+Se completa el formulario de edición con los parámetros técnicos que garantizan el acceso del cliente administrativo al servidor de la zona desmilitarizada, filtrando por protocolo y puerto específico:
+
+* **Action:** Pass (Permitir el tráfico).
+* **Interface:** LAN.
+* **Protocol:** TCP.
+* **Source:** Address or Alias -> `192.168.50.10` (Cliente identificado).
+* **Destination:** Address or Alias -> `10.0.0.50` (Servidor Ubuntu DMZ).
+* **Destination Port Range:** SSH (22).
+
+![Formulario Regla SSH](./10-reglas-firewall/03-formulario-regla-ssh.png)
+
+### 10.4: Almacenamiento de la Directiva
+Tras verificar la exactitud de los datos introducidos, procedemos a pulsar el botón **Save** al final del formulario. Este paso guarda la configuración en la base de datos, quedando pendiente de la activación definitiva por parte del motor de filtrado.
+
+![Guardar Regla SSH](./10-reglas-firewall/04-guardar-regla-ssh.png)
+
+### 10.5: Aplicación Final y Verificación del Listado
+Como cierre del proceso, pulsamos el botón **Apply Changes**. La regla aparece ahora activa en el listado de la interfaz LAN, confirmando que el flujo de datos desde el host `192.168.50.10` hacia el servidor en la DMZ por el puerto 22 será permitido por el firewall.
+
+![Listado Final Reglas](./10-reglas-firewall/05-listado-final-reglas.png)
