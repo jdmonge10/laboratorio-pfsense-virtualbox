@@ -306,3 +306,34 @@ Tras verificar la exactitud de los datos introducidos, procedemos a pulsar el bo
 Como cierre del proceso, pulsamos el botón **Apply Changes**. La regla aparece ahora activa en el listado de la interfaz LAN, confirmando que el flujo de datos desde el host `192.168.50.10` hacia el servidor en la DMZ por el puerto 22 será permitido por el firewall.
 
 ![Listado Final Reglas](./10-reglas-firewall/05-listado-final-reglas.png)
+
+---
+
+## 🏆 Conclusión Final
+
+El laboratorio de seguridad perimetral se ha completado con éxito. Hemos transformado una instalación base de **pfSense** en un **Firewall de Próxima Generación (NGFW)** funcional, con segmentación de red profesional (LAN/DMZ), gestión estática de clientes y políticas de filtrado por capas.
+
+## 🛠️ Especificaciones Técnicas
+
+Para asegurar la replicabilidad de este entorno de seguridad, se detallan los recursos utilizados:
+* **Firewall:** pfSense® Community Edition (2.7.x).
+* **Hipervisor:** Oracle VirtualBox 7.x.
+* **Arquitectura de Red:** * **WAN:** Modo Puente (Acceso a Internet).
+    * **LAN:** Red Interna (`192.168.50.0/24`).
+    * **DMZ:** Red Interna (`10.0.0.0/24`).
+* **Recursos VM:** 1GB RAM | 1 vCPU | 8GB Disco VDI.
+
+## 🧠 Lecciones Aprendidas (Troubleshooting)
+
+Durante el despliegue se identificaron puntos críticos que garantizan el éxito de la infraestructura:
+* **Persistencia de Identidad:** Se validó que sin un **Mapeo Estático DHCP**, las reglas de firewall basadas en IP pierden su validez ante cualquier renovación de concesión o reinicio del cliente.
+* **Lógica de Filtrado:** Es imperativo configurar las reglas en la **interfaz de origen** (LAN), ya que pfSense procesa los paquetes en su punto de entrada al firewall.
+* **Jerarquía de Reglas:** Se comprendió la importancia del orden en el listado; las reglas específicas deben preceder siempre a los bloqueos genéricos para evitar el descarte de tráfico legítimo.
+
+## 🚀 Hoja de Ruta (Próximos Pasos)
+
+Este proyecto es la base para futuras implementaciones de seguridad avanzada:
+
+☐ **Fase 11:** Configuración de VPN (OpenVPN/IPsec) para acceso remoto seguro.
+☐ **Fase 12:** Implementación de IDS/IPS (Snort o Suricata) para detección de intrusiones.
+☐ **Fase 13:** Configuración de Servidor Proxy y filtrado de contenidos con Squid/SquidGuard.
