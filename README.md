@@ -334,6 +334,6 @@ Durante el despliegue se identificaron puntos críticos que garantizan el éxito
 
 Este proyecto es la base para futuras implementaciones de seguridad avanzada:
 
-☐ **Fase 11:** Configuración de VPN (OpenVPN/IPsec) para acceso remoto seguro.
-☐ **Fase 12:** Implementación de IDS/IPS (Snort o Suricata) para detección de intrusiones.
-☐ **Fase 13:** Configuración de Servidor Proxy y filtrado de contenidos con Squid/SquidGuard.
+* ☐ **Fase 11:** Configuración de VPN (OpenVPN/IPsec) para acceso remoto seguro.
+* ☐ **Fase 12:** Implementación de IDS/IPS (Snort o Suricata) para detección de intrusiones.
+* ☐ **Fase 13:** Configuración de Servidor Proxy y filtrado de contenidos con Squid/SquidGuard.
