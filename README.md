@@ -174,3 +174,7 @@ Se realiza una prueba de alcance hacia la interfaz de la DMZ (**10.0.0.1**). El 
 ### 6.4: Acceso a la Interfaz Gráfica (WebGUI)
 Finalmente, se valida el acceso al panel de administración mediante el navegador del cliente. La carga del Dashboard confirma que los servicios de servidor web y seguridad de pfSense están listos para la configuración avanzada. (usuario admin y contraseña pfsense)
 ![Acceso WebGUI](./06-pruebas-conectividad/04-pfsense-webgui.png)
+
+### 6.5: Dashboard de Estado del Sistema
+Una vez autenticados, se accede al panel principal (Dashboard). En esta vista se verifica el estado de los servicios, el uso de recursos de hardware y que las tres interfaces (**WAN, LAN y DMZ**) se encuentran en estado "Up" con sus respectivas direcciones IP asignadas.
+![Dashboard Principal](./06-pruebas-conectividad/05-dashboard-pfsense.png)
