@@ -15,6 +15,19 @@ Para asegurar que se puede replicar este laboratorio, se detallan las versiones 
 
 --- 
 
+## 📂 Fase 00: Arquitectura y Diseño de Red
+Antes de proceder con la implementación técnica, se define el esquema lógico de la infraestructura. El diseño se basa en una arquitectura de tres niveles (Tiered Architecture) para garantizar el aislamiento de servicios críticos.
+
+![Esquema de Red](./esquema-de-red.png)
+
+### Detalle de Segmentación:
+* **Zona WAN (eth1):** Interfaz conectada al mundo exterior (NAT en VirtualBox) para salida a internet.
+* **Zona DMZ (eth2 - 10.0.0.0/24):** Segmento destinado a servidores que ofrecen servicios externos, como el **Servidor Ubuntu**.
+* **Red LAN (eth3 - 192.168.50.0/24):** Zona privada de alta confianza donde se ubica el **CLIENTE-LAN-1**.
+
+---
+
+
 ## 📂 Fase 01: Obtención y Preparación de la Imagen
 El proceso comienza con la adquisición de la imagen oficial, asegurando la integridad del software de seguridad perimetral a través de canales oficiales.
 
