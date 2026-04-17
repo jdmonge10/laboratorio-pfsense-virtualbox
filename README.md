@@ -334,7 +334,7 @@ El laboratorio de seguridad perimetral se ha completado con éxito. Hemos transf
 ## 🛠️ Especificaciones Técnicas
 
 Para asegurar la replicabilidad de este entorno de seguridad, se detallan los recursos utilizados:
-* **Firewall:** pfSense® Community Edition (2.7.x).
+* **Firewall:** ** pfSense Community Edition (v2.8.1+)
 * **Hipervisor:** Oracle VirtualBox 7.x.
 * **Arquitectura de Red:** * **WAN:** Modo Puente (Acceso a Internet).
     * **LAN:** Red Interna (`192.168.50.0/24`).
