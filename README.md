@@ -1,4 +1,4 @@
-# 🛡️ Despliegue de Firewall Permitral con pfSense
+# 🛡️ Despliegue de Firewall Perimetral con pfSense
 
 Este manual, documenta el proceso técnico para la implementación de un firewall como psSense, desde la descarga y preparación de la imagen hasta la configuración de la arquitectura de red en VirtualBox
 
